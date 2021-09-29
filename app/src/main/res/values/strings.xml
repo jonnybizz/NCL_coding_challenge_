@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NCL_coding_challenge</string>
+    <string name="unexpected_error">Unexpected Error</string>
+    <string name="sky_btn_text">SKY</string>
+    <string name="bliss_btn_text">BLISS</string>
+    <string name="escape_btn_text">ESCAPE</string>
+</resources>
