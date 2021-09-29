@@ -12,9 +12,9 @@ class ShipViewModel @Inject constructor(
     private val shipRepository: ShipRepository,
     private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
-    fun getSkyInfo() = shipRepository.getSkyInfo().asLiveData(dispatcher)
+    fun getSkyInfo(shipName : String) = shipRepository.getSkyInfo(shipName).asLiveData(dispatcher)
 
-    fun getBlissInfo() = shipRepository.getBlissInfo().asLiveData(dispatcher)
+    fun getBlissInfo(shipName: String) = shipRepository.getBlissInfo(shipName).asLiveData(dispatcher)
 
-    fun getEscapeInfo() = shipRepository.getEscapeInfo().asLiveData(dispatcher)
+    fun getEscapeInfo(shipName: String) = shipRepository.getEscapeInfo(shipName).asLiveData(dispatcher)
 }

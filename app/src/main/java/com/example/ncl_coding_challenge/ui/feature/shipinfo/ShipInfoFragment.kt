@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -38,7 +39,7 @@ class ShipInfoFragment : Fragment() {
         with(binding) {
             containerSky.apply {
                 btnAction.configureButton(getString(R.string.sky_btn_text)) {
-                    viewModel.getSkyInfo().observe(viewLifecycleOwner) { resource ->
+                    viewModel.getSkyInfo((it as Button).text.toString()).observe(viewLifecycleOwner) { resource ->
                         progressBar.handleVisibility(resource)
                         btnAction.handleIsEnabled(resource)
                         when (resource) {
@@ -60,7 +61,7 @@ class ShipInfoFragment : Fragment() {
             }
             containerBliss.apply {
                 btnAction.configureButton(getString(R.string.bliss_btn_text)) {
-                    viewModel.getBlissInfo().observe(viewLifecycleOwner) { resource ->
+                    viewModel.getBlissInfo((it as Button).text.toString()).observe(viewLifecycleOwner) { resource ->
                         progressBar.handleVisibility(resource)
                         btnAction.handleIsEnabled(resource)
                         when (resource) {
@@ -85,7 +86,7 @@ class ShipInfoFragment : Fragment() {
             }
             containerEscape.apply {
                 btnAction.configureButton(getString(R.string.escape_btn_text)) {
-                    viewModel.getEscapeInfo().observe(viewLifecycleOwner) { resource ->
+                    viewModel.getEscapeInfo((it as Button).text.toString()).observe(viewLifecycleOwner) { resource ->
                         progressBar.handleVisibility(resource)
                         btnAction.handleIsEnabled(resource)
                         when (resource) {

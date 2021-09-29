@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.flow
 
 class ShipRepository(private val shipService: ShipService) {
 
-    fun getSkyInfo() = flow {
+    fun getSkyInfo(shipName : String) = flow {
         emit(Resource.Loading)
         val resource = try {
-            val response = shipService.getSkyInfo()
+            val response = shipService.getShipInfo(shipName)
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
@@ -21,10 +21,10 @@ class ShipRepository(private val shipService: ShipService) {
         emit(resource)
     }
 
-    fun getBlissInfo() = flow {
+    fun getBlissInfo(shipName: String) = flow {
         emit(Resource.Loading)
         val resource = try {
-            val response = shipService.getBlissInfo()
+            val response = shipService.getShipInfo(shipName)
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
@@ -36,10 +36,10 @@ class ShipRepository(private val shipService: ShipService) {
         emit(resource)
     }
 
-    fun getEscapeInfo() = flow {
+    fun getEscapeInfo(shipName: String) = flow {
         emit(Resource.Loading)
         val resource = try {
-            val response = shipService.getEscapeInfo()
+            val response = shipService.getShipInfo(shipName)
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
